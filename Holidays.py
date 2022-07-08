@@ -76,6 +76,15 @@ def getHolidayList(year: int):
     retVal.append(getChristmas(year))
     return retVal
 
+def getAllHolidays(startYear: int, endYear: int ):
+    retVal = []
+    for y in range(startYear, endYear+1):
+        retVal.extend(getHolidayList(y))
+    return retVal
+
+# allHolidays = getAllHolidays(2020, 2023)
+# print(allHolidays)
+
 # holiday2020 = getHolidayList(2020)
 # holiday2022 = getHolidayList(2022)
 # holiday2024 = getHolidayList(2024)
