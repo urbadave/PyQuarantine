@@ -10,8 +10,7 @@ def computeDays(startDay: date, endDay: date):
     weekendDays = 0
     holidayDays = 0
     day = startDay
-    while(day < endDay):
-        day += addADay
+    while(day < endDay):        
         allDays += 1
         if(day.weekday() < 5): #5 and 6 are weekend days
             if(day not in hols):
@@ -20,6 +19,7 @@ def computeDays(startDay: date, endDay: date):
                 holidayDays += 1
         else:
             weekendDays += 1
+        day += addADay
     print('Total of ', allDays, 'days since', startDay)
     print(workDays, 'were work days')
     print(weekendDays, 'were weekend days')
