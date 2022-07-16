@@ -1,5 +1,8 @@
 import Holidays
 from datetime import date, timedelta
+from collections import namedtuple
+
+DaysReturn = namedtuple('DaysReturn', 'allDays startDay workDays weekendDays holidayDays')
 
 def computeDays(startDay: date, endDay: date):
     hols = Holidays.getAllHolidays(startDay.year, endDay.year)
@@ -20,11 +23,5 @@ def computeDays(startDay: date, endDay: date):
         else:
             weekendDays += 1
         day += addADay
-    print('Total of ', allDays, 'days since', startDay)
-    print(workDays, 'were work days')
-    print(weekendDays, 'were weekend days')
-    print(holidayDays, 'were holidays')
-    
-begin = date(2020, 3, 16)
-end = date.today()
-computeDays(begin, end)
+    retVal = DaysReturn(allDays=allDays, startDay=startDay, workDays=workDays, weekendDays=weekendDays, holidayDays=holidayDays)
+    return retVal
